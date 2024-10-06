@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Configurações</title>
+    <title>Painel de Configurações - Modo ADM</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Adicionado favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container">
@@ -24,7 +24,7 @@
 
         <!-- Área de Configuração -->
         <main class="config-area" role="main">
-            <h1>GERAL</h1>
+            <h1>Modo ADM</h1>
 
             <!-- Seções de Configuração -->
             <section class="config-section">
@@ -43,21 +43,13 @@
                 </label>
             </section>
 
-            <section class="config-section">
-                <span>Notificações</span>
-                <label class="switch" aria-label="Alternar Notificações">
-                    <input type="checkbox" id="notificationToggle" aria-labelledby="notificationToggle">
-                    <span class="slider"></span>
-                </label>
-            </section>
-
-            <section class="config-section legal-section">
-                <p>Você está no modo Responsável Legal.</p>
-                <p>Se você for o paciente, clique para alterar o modo.</p>
-                <label class="switch" aria-label="Alternar Modo Responsável Legal">
-                    <input type="checkbox" id="legalModeToggle" aria-labelledby="legalModeToggle">
-                    <span class="slider"></span>
-                </label>
+            <section class="login-section">
+                <h2>LOGIN</h2>
+                <label for="adminId">ID de ADM</label>
+                <input type="text" id="adminId" placeholder="Digite seu ID">
+                <label for="adminPassword">Senha</label>
+                <input type="password" id="adminPassword" placeholder="Digite sua senha">
+                <button class="login-btn" aria-label="Entrar no modo ADM">Entrar no modo ADM</button>
             </section>
         </main>
     </div>

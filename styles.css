@@ -1,0 +1,212 @@
+:root {
+    /* Variáveis de Cores */
+    --primary-color: #000550;
+    --secondary-color: #869cfc;
+    --background-color-dark: #121212;
+    --background-color-light: #f5f5f5;
+    --text-color-dark: #ffffff;
+    --text-color-light: #000000;
+    --toggle-bg-dark: #333;
+    --toggle-bg-light: #ddd;
+    --toggle-slider: #fff;
+    --sidebar-bg: #1f1f1f;
+    --sidebar-bg-light: #ffffff;
+    --button-bg: #00124e;
+    --button-text-color: #ffffff;
+    --active-link-color: #869cfc;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilos para Modo Claro */
+body.light-mode {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+
+/* Container Geral */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Menu Lateral (Sidebar) */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+.sidebar.light-mode {
+    background-color: var(--sidebar-bg-light);
+    color: var(--text-color-light);
+}
+
+.profile-icon {
+    width: 100px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: var(--text-color-dark); /* Cor para modo escuro */
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode .sidebar ul li a {
+    color: var(--text-color-light); /* Cor para modo claro */
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+    background-color: var(--active-link-color);
+    color: var(--text-color-dark);
+}
+
+/* Botão Créditos */
+.credits-btn {
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.credits-btn:hover {
+    background-color: var(--primary-color);
+}
+
+.credits-btn:active {
+    background-color: var(--primary-color);
+    transform: translateY(2px); /* Para um efeito de pressionar */
+}
+
+/* Área de Configuração */
+.config-area {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--background-color-dark);
+    transition: background-color 0.3s;
+}
+
+body.light-mode .config-area {
+    background-color: var(--background-color-light);
+}
+
+.config-section {
+    background-color: var(--toggle-bg-dark);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+body.light-mode .config-section {
+    background-color: var(--toggle-bg-light);
+}
+
+.legal-section {
+    background-color: var(--toggle-bg-dark);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+body.light-mode .legal-section {
+    background-color: var(--toggle-bg-light);
+}
+
+/* Estilos para os Interruptores */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--toggle-bg-dark);
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+body.light-mode .slider {
+    background-color: var(--toggle-bg-light);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2px;
+    background-color: var(--toggle-slider);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .config-area {
+        margin-top: 20px;
+    }
+}
